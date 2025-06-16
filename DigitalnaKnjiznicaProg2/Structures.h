@@ -51,6 +51,7 @@ typedef struct {
     char datumVracanja[DULJINA_DATUMA];
 } Posuditi;
 
+// External deklaracije za globalne varijable
 extern Knjiga* knjige;
 extern Posuditi* posudbe;
 extern int brojKnjiga;
