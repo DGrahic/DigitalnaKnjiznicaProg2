@@ -248,7 +248,7 @@ void spremiSveKnjige(void) {
 
     if (fwrite(knjige, sizeof(Knjiga), brojKnjiga, fp) != brojKnjiga) {
         perror("Greska pri pisanju knjiga");
-        // Vrati backup ako je došlo do greške
+        // Vrati backup ako je doslo do greske
         rename("knjige_backup.bin", "knjige.bin");
     }
     fclose(fp);
@@ -266,7 +266,7 @@ void pretraziKnjige(void) {
     fgets(pojam, sizeof(pojam), stdin);
     pojam[strcspn(pojam, "\n")] = '\0';
 
-    // Pozivamo rekurzivnu funkciju za pretraživanje
+    // Pozivamo rekurzivnu funkciju za pretrazivanje
     pretraziKnjigeRekurzivno(pojam, 0);
 }
 
@@ -289,7 +289,7 @@ void pretraziKnjigeRekurzivno(const char* pojam, int index) {
         printf("Knjiga s tim imenom ne postoji.\n");
     }
 
-    // Rekurzivni poziv za sljedeæi indeks
+    // Rekurzivni poziv za sljedeci indeks
     pretraziKnjigeRekurzivno(pojam, index + 1);
 }
 
@@ -340,7 +340,7 @@ void posudiKnjigu(void) {
     strncpy(novaPosudba.korisnik, korisnik, MAX_KORISNIK);
     strncpy(novaPosudba.naslovKnjige, knjige[odabir].naslov, MAX_NASLOV);
     strncpy(novaPosudba.datumPosudbe, datumPosudbe, DULJINA_DATUMA);
-    novaPosudba.datumVracanja[0] = '\0'; // još nije vraæeno
+    novaPosudba.datumVracanja[0] = '\0'; // jos nije vraceno
 
     posudbe[brojPosudbi++] = novaPosudba;
     knjige[odabir].status = POSUDJENO;
@@ -412,7 +412,7 @@ void spremiSvePosudbe(void) {
 
     if (fwrite(posudbe, sizeof(Posuditi), brojPosudbi, fp) != brojPosudbi) {
         perror("Greska pri pisanju posudbi");
-        // Vrati backup ako je došlo do greške
+        // Vrati backup ako je doslo do greske
         rename("posudbe_backup.bin", "posudbe.bin");
     }
     fclose(fp);
@@ -434,7 +434,7 @@ void obrisiKnjigu(void) {
         return;
     }
 
-    // Provjeri je li knjiga trenutno posuðena
+    // Provjeri je li knjiga trenutno posudena
     if (knjige[indeks].status == POSUDJENO) {
         printf("Knjiga je trenutno posudena i ne moze se obrisati!\n");
         return;
@@ -447,7 +447,7 @@ void obrisiKnjigu(void) {
 
     brojKnjiga--;
 
-    // Ažuriraj posudbe koje se odnose na ovu knjigu
+    // Azuriraj posudbe koje se odnose na ovu knjigu
     for (int i = 0; i < brojPosudbi; i++) {
         if (strcmp(posudbe[i].naslovKnjige, knjige[indeks].naslov) == 0) {
             // Pomakni sve posudbe iza ove za jedno mjesto unatrag
@@ -593,7 +593,7 @@ int napraviSigurnosnuKopiju(const char* izvorniPut, const char* odredisniPut) {
         return -1;
     }
 
-    // Otvori odredišnu datoteku
+    // Otvori odredisnu datoteku
     odrediste = fopen(odredisniPut, "wb");
     if (odrediste == NULL) {
         perror("Greska pri otvaranju odredisne datoteke");
@@ -604,15 +604,15 @@ int napraviSigurnosnuKopiju(const char* izvorniPut, const char* odredisniPut) {
     // Kopiraj podatke
     while ((procitano = fread(buffer, 1, sizeof(buffer), izvor)) > 0) {
         if (fwrite(buffer, 1, procitano, odrediste) != procitano) {
-            perror("Greska pri pisanju u odredišnu datoteku");
+            perror("Greska pri pisanju u odredisnu datoteku");
             fclose(izvor);
             fclose(odrediste);
-            remove(odredisniPut); // Obriši nepotpunu kopiju
+            remove(odredisniPut); // Obrisi nepotpunu kopiju
             return -1;
         }
     }
 
-    // Provjeri greške nakon èitanja
+    // Provjeri greske nakon citanja
     if (ferror(izvor)) {
         perror("Greska pri citanju izvorne datoteke");
         fclose(izvor);
