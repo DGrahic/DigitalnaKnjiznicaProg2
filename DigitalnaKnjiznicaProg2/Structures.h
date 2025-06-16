@@ -47,9 +47,10 @@ typedef struct {
 typedef struct {
     char korisnik[MAX_KORISNIK];
     char naslovKnjige[MAX_NASLOV];
-    char datumPosudbe[POCETNI_KAPACITET];
+    char datumPosudbe[DULJINA_DATUMA];
     char datumVracanja[DULJINA_DATUMA];
 } Posuditi;
+
 
 // External deklaracije za globalne varijable
 extern Knjiga* knjige;
