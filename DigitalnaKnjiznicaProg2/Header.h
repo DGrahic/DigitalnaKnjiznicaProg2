@@ -34,7 +34,7 @@ void posudiKnjigu(void);
 void vratiKnjigu(void);
 void prikaziPosudbe(void);
 
-// Pomoæne funkcije
+// Pomocne funkcije
 void ocistiBuffer(void);
 
 // Izbornik
@@ -43,7 +43,7 @@ void pokreniGlavniIzbornik(void);
 
 void ocistiBuffer(void);
 
-//Usporeðivanje po ______
+//Usporedivanje po ______
 int usporediKnjigePoNaslovu(const void* a, const void* b);
 int usporediKnjigePoAutoru(const void* a, const void* b);
 int usporediKnjigePoGodini(const void* a, const void* b);
