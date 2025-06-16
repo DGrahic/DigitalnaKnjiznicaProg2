@@ -10,9 +10,6 @@
 #include <time.h>
 #include <errno.h>
 
-// External deklaracije za globalne varijable
-
-
 // Upravljanje memorijom
 void alokacijaMemorije(void);
 void prosiriNizKnjiga(void);
@@ -37,7 +34,7 @@ void posudiKnjigu(void);
 void vratiKnjigu(void);
 void prikaziPosudbe(void);
 
-// Pomoæne funkcije
+// PomoÃ¦ne funkcije
 void ocistiBuffer(void);
 
 // Izbornik
@@ -46,7 +43,7 @@ void pokreniGlavniIzbornik(void);
 
 void ocistiBuffer(void);
 
-//Usporeðivanje po ______
+//UsporeÃ°ivanje po ______
 int usporediKnjigePoNaslovu(const void* a, const void* b);
 int usporediKnjigePoAutoru(const void* a, const void* b);
 int usporediKnjigePoGodini(const void* a, const void* b);
