@@ -10,6 +10,7 @@
 #include <time.h>
 #include <errno.h>
 
+
 // Upravljanje memorijom
 void alokacijaMemorije(void);
 void prosiriNizKnjiga(void);
@@ -34,7 +35,7 @@ void posudiKnjigu(void);
 void vratiKnjigu(void);
 void prikaziPosudbe(void);
 
-// Pomocne funkcije
+// Pomoćne funkcije
 void ocistiBuffer(void);
 
 // Izbornik
@@ -43,7 +44,7 @@ void pokreniGlavniIzbornik(void);
 
 void ocistiBuffer(void);
 
-//Usporedivanje po ______
+//Uspoređivanje po ______
 int usporediKnjigePoNaslovu(const void* a, const void* b);
 int usporediKnjigePoAutoru(const void* a, const void* b);
 int usporediKnjigePoGodini(const void* a, const void* b);
